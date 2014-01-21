@@ -6,8 +6,10 @@ build:
         code: |-
             composer install --no-interaction
     - script:
-        name: Serve application
+        name: serve application
         code: php -S localhost:8000 >> /dev/null &
     - script:
-        name: PHPUnit integration tests
+        name: integration tests
         code: phpunit --configuration phpunit.xml
+    - wercker/copy-to-output@0.0.5:
+            exclude: .git
